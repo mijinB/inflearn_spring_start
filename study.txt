@@ -4,3 +4,14 @@
 - src > main > resources는 java파일 제외하고 모두 들어간다. (ex. html)
 
 +----------------------------------------------------------------------------------------------------------------------------------------------+
+
+*Welcome Page
+- main > resources > static > index.html 파일을 제일 먼저 찾는다.
+
+*GetMapping("hello")
+⇒ main > java > ... > controller > HelloController.java 참고
+- 웹 어플리케이션에서 /hello 로 들어오면 아래 메서드를 호출해준다는 의미이다.
+
+*thymeleaf
+⇒ main > resources > templates > hello.html 참고
+- th 문법 사용해서 controller data 사용 가능하다.
