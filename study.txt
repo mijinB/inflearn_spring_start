@@ -5,6 +5,12 @@
 
 +----------------------------------------------------------------------------------------------------------------------------------------------+
 
+*빌드 및 실행
+- windows cmd 사용
+  cmd 실행 → project(hello-spring) 폴더 위치로 이동 → "gradlew build" 입력 → cd bulid > libs 이동 → "java -jar hello-spring-0.0.1-SNAPSHOT.jar" 입력
+ ⇒ 빌드 및 실행 완료
+  (빌드에 실패할 경우, https://blog.naver.com/bkmij/223594375357 블로그 글 참고)
+
 *Welcome Page
 - main > resources > static > index.html 파일을 제일 먼저 찾는다.
 
