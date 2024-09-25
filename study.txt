@@ -31,3 +31,11 @@
 *thymeleaf
 !! main > resources > templates > hello.html 참고
 - th 문법 사용해서 controller data 사용 가능하다.
+
+*테스트케이스
+- junit이라는 라이브러리를 사용한다.
+- Assertions 사용해서 값이 같은지 확인. 같으면 Run 왼쪽 파일 이름에 초록색 체크 아이콘, 다르면 오류를 내면서 노란 느낌표 아이콘이 뜬다.
+- class에서 Run을 하면 class 내부에 있는 Test를 모두 수행한다.
+- (⭐중요한 부분)@AfterEach는 하나의 테스트가 끝날때마다 실행된다.
+  !! main > java > ... > repository > MemoryMemberRepository 파일의 clearStore 사용
+   ↳ 테스트는 순서가 고정되지 않아서 순서에 따라 오류가 발생할 수 있기 때문에 하나의 테스트가 끝나면 clear를 해주어야 한다.
