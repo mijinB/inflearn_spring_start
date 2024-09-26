@@ -37,10 +37,16 @@
 - Assertions 사용해서 값이 같은지 확인. 같으면 Run 왼쪽 파일 이름에 초록색 체크 아이콘, 다르면 오류를 내면서 노란 느낌표 아이콘이 뜬다.
 - class에서 Run을 하면 class 내부에 있는 Test를 모두 수행한다.
 - (⭐중요한 부분)@AfterEach는 하나의 테스트가 끝날때마다 실행된다.
-  !! main > java > ... > repository > MemoryMemberRepository 파일의 clearStore 사용
+  !! main > java > ... > repository > MemoryMemberRepository.java 파일의 clearStore 사용
    ↳ 테스트는 순서가 고정되지 않아서 순서에 따라 오류가 발생할 수 있기 때문에 하나의 테스트가 끝나면 clear를 해주어야 한다.
 
 *service (폴더)
 !! main > java > ... > service > MemberService.java 파일 참고
 - service 클래스는 비지니스에 가까운 용어를 써야한다. (ex. join, findMembers)
    ↳ repository 클래스는 개발스럽게 용어를 쓴다. (ex. findById, findByName, findAll)
+
+*ifPresent
+!! main > java > ... > service > MemberService.java 파일 참고
+- null이 아니고 어떤 값이 있다면 내부가 동작하는 것이다.
+- Optional이기 때문에 가능한 것이다.
+- Optional을 바로 반환하는 것을 권장하지 않는다. (주석 코드와 그 아래 코드 참고)
