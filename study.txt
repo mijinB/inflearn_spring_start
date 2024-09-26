@@ -39,3 +39,8 @@
 - (⭐중요한 부분)@AfterEach는 하나의 테스트가 끝날때마다 실행된다.
   !! main > java > ... > repository > MemoryMemberRepository 파일의 clearStore 사용
    ↳ 테스트는 순서가 고정되지 않아서 순서에 따라 오류가 발생할 수 있기 때문에 하나의 테스트가 끝나면 clear를 해주어야 한다.
+
+*service (폴더)
+!! main > java > ... > service > MemberService.java 파일 참고
+- service 클래스는 비지니스에 가까운 용어를 써야한다. (ex. join, findMembers)
+   ↳ repository 클래스는 개발스럽게 용어를 쓴다. (ex. findById, findByName, findAll)
