@@ -93,3 +93,15 @@
 - 결론부터 말하면, 의존관계가 실행중에 동적으로 변하는 경우는 없으므로 생성자 주입을 권장한다.
 - 권장하지 않는 2가지 방법은 main > java > ... > controller > MemberController.java 주석 부분 참고
 ❓스프링 컨테이너, DI 관련된 깊이있는 학습은 스프링 핵심 원리 강의에서 진행된다.
+
+*회원 가입 구현 동작 방식
+!! main > java > ... > controller > HomeController.java
+   & main > java > ... > controller > MemberController.java
+   & main > resources > templates > home.html
+   & main > resources > templates > members > createMemberForm.html
+   & main > java > ... > controller > MemberForm.java                   참고
+- 사용자가 localhost:8080/로 접근하면 HomeController의 @GetMapping("/")에서 home.html로 보낸다.
+   → 회원 가입을 클릭하면 home.html에서 href="/members/new"로 보낸다.
+   → 사용자가 localhost:8080/members/new로 접근하면 MemberController의 @GetMapping("/members/new")가 createMemberForm.html로 보낸다.
+   → createMemberForm.html에서(form의 method="post") 이름 input의 name에 사용자가 화면에서 입력한 string 값이 들어가고 Enter나 등록 버튼을 클릭하면
+   → MemberController의 @PostMapping("/members/new")가 호출되면서 매개변수 MemberForm로 받은 name으로 회원가입을 진행 시킨 후 홈 화면으로 redirect 시킨다.
