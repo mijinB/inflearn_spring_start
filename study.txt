@@ -144,3 +144,10 @@
    src > main > java > ... > repository > JpaMemberRepository.java 파일 추가
    src > main > java > ... > service > SpringConfig.java 파일 수정으로 사용 (JpaMemberRepository)
 - 반드시 @Transactional 필요 (src > main > java > service > MemberService.java)
+
+*스프링 데이터 JPA
+!! src > main > java > ... > repository > SpringDataJpaMemberRepository.java 파일 추가
+   src > main > java > ... > service > SpringConfig.java 파일 수정으로 사용 (memberRepository() Bean은 주석 / memberService() Bean 수정)
+- 인터페이스를 통한 기본적인 CRUD 가능
+- findByName(), findByEmail() 처럼 메서드 이름 만으로 조회 기능 제공
+- 페이징 기능 자동 제공
