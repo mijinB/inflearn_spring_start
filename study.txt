@@ -116,3 +116,16 @@
 → JDBC URL: 경로는 최초 한 번만 jdbc:h2:~/test 으로 해서 연결 했다가 우측상단 버튼으로 다시 나가기
 → 그 후로는 계속 JDBC URL: 경로를 jdbc:h2:tcp://localhost/~/test 으로 해서 연결하여 사용
 → 연결해서 들어가면 sql 입력하면서 DB 관리하면 된다.
+
+*순수 JDBC
+!! src > main > java > ... > repository > JdbcMemberRepository.java 파일에 작성하고
+   src > main > java > ... > service > SpringConfig.java 파일 수정으로 사용
+   (SpringConfig.java 파일에서 MemoryMemberRepository()를 JdbcMemberRepository(dataSource)로 바꾼 것이 개방-폐쇄 원칙(Open-Closed Principle, OCP)이다. ⇒ java 기본 project의 study.txt파일에 OCP 필기 했었음)
+- 사용하기 위한 setting
+→ src > build.gradle 파일에 아래 두줄 추가
+  implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+  implementation 'com.h2database:h2'
+→ src > main > resources > application.properties 파일에 아래 두줄 추가
+  spring.datasource.url=jdbc:h2:tcp://localhost/~/test
+  spring.datasource.driver-class-name=org.h2.Driver
+→ src > build.gradle 파일에서 코끼리 리셋(?)버튼 클릭 (Load Gradle Changes)
