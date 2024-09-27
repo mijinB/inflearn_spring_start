@@ -1,24 +1,19 @@
 package hello.hello_spring;
 
-import hello.hello_spring.repository.JdbcMemberRepository;
-import hello.hello_spring.repository.JdbcTemplateMemberRepository;
-import hello.hello_spring.repository.MemberRepository;
-import hello.hello_spring.repository.MemoryMemberRepository;
+import hello.hello_spring.repository.*;
 import hello.hello_spring.service.MemberService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.sql.DataSource;
+import javax.persistence.EntityManager;
 
 @Configuration
 public class SpringConfig {
 
-    private DataSource dataSource;
+    private final EntityManager em;
 
-    @Autowired
-    public SpringConfig(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public SpringConfig(EntityManager em) {
+        this.em = em;
     }
 
     @Bean
@@ -34,7 +29,10 @@ public class SpringConfig {
         /* 순수 JDBC
         return new JdbcMemberRepository(dataSource); */
 
-        /* JDBC Template */
-        return new JdbcTemplateMemberRepository(dataSource);
+        /* JDBC Template
+        return new JdbcTemplateMemberRepository(dataSource); */
+
+        /* JPA */
+        return new JpaMemberRepository(em);
     }
 }

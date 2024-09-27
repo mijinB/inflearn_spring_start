@@ -138,3 +138,9 @@
 *JDBC Template
 !! src > main > java > ... > repository > JdbcTemplateMemberRepository.java 파일에 작성하고
       src > main > java > ... > service > SpringConfig.java 파일 수정으로 사용 (JdbcTemplateMemberRepository)
+
+*JPA
+!! src > main > java > ... > domain > Member.java 파일에 어노테이션 추가
+   src > main > java > ... > repository > JpaMemberRepository.java 파일 추가
+   src > main > java > ... > service > SpringConfig.java 파일 수정으로 사용 (JpaMemberRepository)
+- 반드시 @Transactional 필요 (src > main > java > service > MemberService.java)
