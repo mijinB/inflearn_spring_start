@@ -49,6 +49,8 @@
 - 예외 처리도 테스트 해줘야 한다.
 - ⭐@BeforeEach 사용과 사용 이유는 test > java > ... > service > MemberServiceTest.java 파일 참고
    ⇒  각 테스트 실행 전에 호출된다. 테스트가 서로 영향이 없도록 항상 새로운 객체를 생성하고, 의존관계도 새로 맺어준다. (의존관계는 *스프링 빈과 의존관계에서 더 학습)
+- @SpringBootTest : 스프링 컨테이너와 테스트를 함께 실행한다.
+- @Transactional : 테스트 시작 전에 트랜잭션을 시작하고 DB에 데이터를 insert query로 넣은 후 테스트가 끝나면 ROOLBACK 해준다. (DB에 데이터가 남지 않기 때문에 다음 테스트에 영향을 주지 않는다.)
 
 *service (폴더)
 !! main > java > ... > service > MemberService.java 파일 참고
