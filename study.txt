@@ -105,3 +105,14 @@
    → 사용자가 localhost:8080/members/new로 접근하면 MemberController의 @GetMapping("/members/new")가 createMemberForm.html로 보낸다.
    → createMemberForm.html에서(form의 method="post") 이름 input의 name에 사용자가 화면에서 입력한 string 값이 들어가고 Enter나 등록 버튼을 클릭하면
    → MemberController의 @PostMapping("/members/new")가 호출되면서 매개변수 MemberForm로 받은 name으로 회원가입을 진행 시킨 후 홈 화면으로 redirect 시킨다.
+
+*H2 데이터베이스 설치 및 실행
+ (windows 기준. mac은 수업자료 참고)
+!! project 폴더(hello-spring) > sql > ddl.sql 에 sql 관리하면서 git에 저장
+- https://www.h2database.com/html/main.html
+→ All Platforms (zip, 9.5 MB) 클릭해서 설치 및 압축 풀기
+→ cmd로 압축 푼 h2 폴더 위치로 접근
+→ h2.bat 입력해서 실행하면 h2 페이지가 웹으로 뜬다.
+→ JDBC URL: 경로는 최초 한 번만 jdbc:h2:~/test 으로 해서 연결 했다가 우측상단 버튼으로 다시 나가기
+→ 그 후로는 계속 JDBC URL: 경로를 jdbc:h2:tcp://localhost/~/test 으로 해서 연결하여 사용
+→ 연결해서 들어가면 sql 입력하면서 DB 관리하면 된다.
