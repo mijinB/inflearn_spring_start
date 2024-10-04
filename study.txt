@@ -116,11 +116,13 @@
 !! project 폴더(hello-spring) > sql > ddl.sql 에 sql 관리하면서 git에 저장
 - https://www.h2database.com/html/main.html
 → All Platforms (zip, 9.5 MB) 클릭해서 설치 및 압축 풀기
-→ cmd로 압축 푼 h2 폴더 위치로 접근
+→ cmd로 압축 푼 h2 폴더 > bin 위치로 접근
 → h2.bat 입력해서 실행하면 h2 페이지가 웹으로 뜬다.
 → JDBC URL: 경로는 최초 한 번만 jdbc:h2:~/test 으로 해서 연결 했다가 우측상단 버튼으로 다시 나가기
 → 그 후로는 계속 JDBC URL: 경로를 jdbc:h2:tcp://localhost/~/test 으로 해서 연결하여 사용
 → 연결해서 들어가면 sql 입력하면서 DB 관리하면 된다.
+ ?? Connection is broken: "java.net.ConnectException: Connection refused: no further information: localhost"
+    ↳ DB 연결 에러이다. DB 연결해주기
 
 *순수 JDBC
 !! src > main > java > ... > repository > JdbcMemberRepository.java 파일에 작성하고
@@ -160,3 +162,9 @@
 -        ''        을 별도의 공통 로직으로 만들기 매우 어렵다.
 -        ''        을 변경할 때 모든 로직을 찾아가면서 변경해야 한다.
  ⇒ 공통 관심 사항(cross-cutting concern) vs 핵심 관심 사항(core concern)
+
+*AOP (Aspect Oriented Programming: 관점 지향 프로그래밍)
+!! src > main > java > ... > aop > TimeTraceApp.java 파일 추가
+- 공통 관심 사항(cross-cutting concern)과 핵심 관심 사항(core concern)을 분리하는 것이다.
+- @Aspect 필요
+- @Around("execution(* hello.hello_spring..*(..))") 부분의 경로를 수정하여 조작 가능
